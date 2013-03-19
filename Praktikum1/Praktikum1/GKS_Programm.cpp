@@ -58,7 +58,7 @@ void CGKS_Programm::startGKS(void)
 	gs.gopen_gks("con");
 	gs.gopen_ws(1,NULL,GKS_SUBWINDOW);
 	gs.gactivate_ws(1);
-	gs.gx_set_win(1,0,400,0,300);
+	gs.gx_set_win(1,0,420,0,300);
 	gs.gx_set_vp(1,0,1,0.1,0.85);
 }
 
