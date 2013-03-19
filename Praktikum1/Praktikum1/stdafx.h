@@ -36,6 +36,13 @@
 #include <atlbase.h>
 #include <atlstr.h>
 
+#include <math.h>
+
 // TODO: Hier auf zusätzliche Header, die das Programm erfordert, verweisen.
 
 #include "GServer.h"
+
+#include "GeoObject.h"
+#include "Punkt.h"
+#include "Linie.h"
+#include "Kreis.h"

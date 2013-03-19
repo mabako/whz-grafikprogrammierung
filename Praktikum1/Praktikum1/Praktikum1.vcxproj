@@ -51,7 +51,7 @@
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../Klassen;.</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -70,6 +70,7 @@
       <PreprocessorDefinitions>WIN32;_NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>../../Klassen;.</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>GServer100.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -82,12 +83,20 @@
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Klassen\GeoObject.h" />
+    <ClInclude Include="..\..\Klassen\Kreis.h" />
+    <ClInclude Include="..\..\Klassen\Linie.h" />
+    <ClInclude Include="..\..\Klassen\Punkt.h" />
     <ClInclude Include="GKS_Programm.h" />
     <ClInclude Include="Praktikum1.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Klassen\GeoObject.cpp" />
+    <ClCompile Include="..\..\Klassen\Kreis.cpp" />
+    <ClCompile Include="..\..\Klassen\Linie.cpp" />
+    <ClCompile Include="..\..\Klassen\Punkt.cpp" />
     <ClCompile Include="GKS_Programm.cpp" />
     <ClCompile Include="Praktikum1.cpp" />
     <ClCompile Include="stdafx.cpp">

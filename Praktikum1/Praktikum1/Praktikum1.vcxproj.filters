@@ -4,6 +4,9 @@
     <Filter Include="Praktikum1">
       <UniqueIdentifier>{4d07f791-9e25-4fd0-a68d-e7add71d54a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Klassen">
+      <UniqueIdentifier>{855a0d06-9242-4eb5-9a7f-028962a3486a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -24,6 +27,18 @@
     <ClInclude Include="resource.h">
       <Filter>Praktikum1</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Klassen\GeoObject.h">
+      <Filter>Klassen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Klassen\Kreis.h">
+      <Filter>Klassen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Klassen\Linie.h">
+      <Filter>Klassen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Klassen\Punkt.h">
+      <Filter>Klassen</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GKS_Programm.cpp">
@@ -34,6 +49,18 @@
     </ClCompile>
     <ClCompile Include="Praktikum1.cpp">
       <Filter>Praktikum1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Klassen\Punkt.cpp">
+      <Filter>Klassen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Klassen\Kreis.cpp">
+      <Filter>Klassen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Klassen\GeoObject.cpp">
+      <Filter>Klassen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Klassen\Linie.cpp">
+      <Filter>Klassen</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
