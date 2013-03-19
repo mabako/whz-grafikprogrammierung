@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+extern CServer gs;
+
 CLinie::CLinie() {
 }
 
@@ -11,6 +13,11 @@ CLinie::~CLinie() {
 }
 
 void CLinie::Zeichnen() {
+	Gpoint_list linie;
+	Gpoint punkte[2] = {{m_AP.get_x(), m_AP.get_y()}, {m_EP.get_x(), m_EP.get_y()}};
+	linie.num_points = 2;
+	linie.points = punkte;
+	gs.gpolyline(&linie);
 }
 
 void CLinie::Set(int objektnummer, CPunkt anfang, CPunkt ende) {
