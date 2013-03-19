@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+extern CServer gs;
+
 CGeoObject::CGeoObject() {
 }
 
@@ -11,5 +13,5 @@ int CGeoObject::getObjNr() {
 }
 
 void CGeoObject::LoescheGrafik() {
-	// TODO
+	gs.gdel_seg(m_iObjNr);
 }
