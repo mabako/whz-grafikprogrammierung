@@ -40,7 +40,7 @@
 
 // TODO: Hier auf zusätzliche Header, die das Programm erfordert, verweisen.
 
-#include "GServer.h"
+#include "../../gks/GServer.h"
 
 #include "GeoObject.h"
 #include "Punkt.h"
