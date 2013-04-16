@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Praktikum2">
+      <UniqueIdentifier>{4d07f791-9e25-4fd0-a68d-e7add71d54a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Klassen">
+      <UniqueIdentifier>{855a0d06-9242-4eb5-9a7f-028962a3486a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="small.ico">
+      <Filter>Praktikum2</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GKS_Programm.h">
+      <Filter>Praktikum2</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Praktikum2</Filter>
+    </ClInclude>
+    <ClInclude Include="Praktikum2.h">
+      <Filter>Praktikum2</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Praktikum2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Klassen\GeoObject.h">
+      <Filter>Klassen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Klassen\Kreis.h">
+      <Filter>Klassen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Klassen\Linie.h">
+      <Filter>Klassen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Klassen\Punkt.h">
+      <Filter>Klassen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Klassen\DatenBasis.h">
+      <Filter>Klassen</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GKS_Programm.cpp">
+      <Filter>Praktikum2</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Praktikum2</Filter>
+    </ClCompile>
+    <ClCompile Include="Praktikum2.cpp">
+      <Filter>Praktikum2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Klassen\Punkt.cpp">
+      <Filter>Klassen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Klassen\Kreis.cpp">
+      <Filter>Klassen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Klassen\GeoObject.cpp">
+      <Filter>Klassen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Klassen\Linie.cpp">
+      <Filter>Klassen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Klassen\DatenBasis.cpp">
+      <Filter>Klassen</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
