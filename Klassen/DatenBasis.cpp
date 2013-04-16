@@ -45,9 +45,9 @@ CGeoObject* CDatenBasis::searchObject(int ObjNr)
 		{
 			pReturnObject = pObject;
 			break;
-		}	
+		}
 	}
-	return pReturnObject;	
+	return pReturnObject;
 }
 
 void CDatenBasis::redraw()

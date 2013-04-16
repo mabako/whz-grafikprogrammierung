@@ -10,6 +10,8 @@ public:
 	~CLinie(void);
 	void Zeichnen();
 	void Set(int objektnummer, CPunkt anfang, CPunkt ende);
+	void Schieben(CVektor v);
+	void Drehen(CPunkt basisPunkt, float winkel);
 
 private:
 	CPunkt m_AP, m_EP;

@@ -42,8 +42,9 @@
 
 #include "GServer.h"
 
-#include "GeoObject.h"
 #include "Punkt.h"
+#include "Vektor.h"
+#include "GeoObject.h"
 #include "Linie.h"
 #include "Kreis.h"
 

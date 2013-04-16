@@ -3,6 +3,8 @@
 
 extern CServer gs;
 
+//#define A2
+
 CGKS_Programm::CGKS_Programm(void)
 {
 }
@@ -57,6 +59,7 @@ void CGKS_Programm::execute()
 
 	AfxMessageBox("Grafik gezeichnet");
 
+#ifdef A2
 	// Figur 1 löschen
 	loeschen(101);
 	loeschen(102);
@@ -72,6 +75,42 @@ void CGKS_Programm::execute()
 	clearScreen();
 	AfxMessageBox("BS gelöscht");
 	m_DatenBasis.redraw();
+#else
+	// Verschieben von Figur 1 um 200, 130
+	CVektor v;
+	v.set(200, 130);
+	schieben(101, v);
+	schieben(102, v);
+	schieben(103, v);
+	AfxMessageBox("Figur 1 verschoben");
+
+	// Figur 3 um -45° bezüglich des Punktes 150, 200 drehen
+	CPunkt bas;
+	bas.set(150, 200);
+	for(int i = 301; i <= 304; ++ i)
+	{
+		drehen(i, bas, -45);
+	}
+
+	// Figur 1 um 45° bezüglich des aktuellen Mittelpunkts (300, 230) drehen
+	bas.set(300, 230);
+	drehen(101, bas, 45);
+	drehen(102, bas, 45);
+	drehen(103, bas, 45);
+
+	// Figur 2 um (-150, 100) verschieben
+	v.set(-150, 100);
+	schieben(201, v);
+	schieben(202, v);
+	AfxMessageBox("Figur 2 verschoben");
+
+	// Figur 3 löschen
+	for(int i = 301; i <= 304; ++ i)
+	{
+		loeschen(i);
+	}
+	AfxMessageBox("Figur 3 gelöscht");
+#endif
 
 	// Haltepunkt
 	AfxMessageBox("Programmende");
@@ -81,6 +120,35 @@ void CGKS_Programm::loeschen(int objNr)
 {
 	CGeoObject* pObject = m_DatenBasis.searchObject(objNr);
 	m_DatenBasis.deleteObject(pObject);
+}
+
+void CGKS_Programm::schieben(int objNr, CVektor v) {
+	// Objekt in der Datenbasis suchen.
+	CGeoObject* pObject = m_DatenBasis.searchObject(objNr);
+
+	// Gefundenes Objekt verschieben
+	pObject->Schieben(v);
+
+	// Alte Grafik löschen
+	pObject->LoescheGrafik();
+
+	// Neu zeichnen
+	pObject->Zeichnen();
+}
+
+void CGKS_Programm::drehen(int objNr, CPunkt basisPunkt, float winkel)
+{
+	// Objekt in der Datenbasis suchen.
+	CGeoObject* pObject = m_DatenBasis.searchObject(objNr);
+
+	// Gefundenes Objekt drehen
+	pObject->Drehen(basisPunkt, winkel);
+
+	// Alte Grafik löschen
+	pObject->LoescheGrafik();
+
+	// Neu zeichnen
+	pObject->Zeichnen();
 }
 
 void CGKS_Programm::clearScreen()

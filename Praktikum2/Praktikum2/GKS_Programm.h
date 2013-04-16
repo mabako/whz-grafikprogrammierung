@@ -13,5 +13,7 @@ public:
 	void startGKS();
 	void stopGKS();
 	void loeschen(int objNr);
+	void schieben(int objNr, CVektor v);
+	void drehen(int objNr, CPunkt basisPunkt, float winkel);
 	void clearScreen();
 };

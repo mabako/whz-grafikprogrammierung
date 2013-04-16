@@ -29,3 +29,14 @@ void CLinie::Set(int objektnummer, CPunkt anfang, CPunkt ende) {
 	m_AP = anfang;
 	m_EP = ende;
 }
+
+void CLinie::Schieben(CVektor v) {
+	m_AP.schieben(v);
+	m_EP.schieben(v);
+}
+
+void CLinie::Drehen(CPunkt basisPunkt, float winkel)
+{
+	m_AP.drehen(basisPunkt, winkel);
+	m_EP.drehen(basisPunkt, winkel);
+}

@@ -31,3 +31,13 @@ void CKreis::Set(int objektnummer, CPunkt mittelpunkt, float radius) {
 	m_MP = mittelpunkt;
 	m_fRadius = radius;
 }
+
+void CKreis::Schieben(CVektor v) {
+	m_MP.schieben(v);
+}
+
+void CKreis::Drehen(CPunkt basisPunkt, float winkel)
+{
+	m_MP.drehen(basisPunkt, winkel);
+}
+

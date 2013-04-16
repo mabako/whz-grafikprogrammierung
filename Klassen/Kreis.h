@@ -10,6 +10,8 @@ public:
 	~CKreis(void);
 	void Zeichnen();
 	void Set(int objektnummer, CPunkt mittelpunkt, float radius);
+	void Schieben(CVektor v);
+	void Drehen(CPunkt basisPunkt, float winkel);
 
 private:
 	CPunkt m_MP;
