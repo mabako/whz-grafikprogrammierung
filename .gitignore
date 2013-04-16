@@ -1,5 +1,14 @@
 *.pdb
 *.suo
 *.user
+*.sdf
+*.opensdf
 Debug/
 Release/
+ipch/
+
+# werden immer in den projektordner kopiert, damit die entsprechenden GKS-dlls
+# auch bei Start über Visual Studio gefunden werden
+# Dies steht im Gegensatz zur wenig sinnvollen bereitgestellten Konfiguration,
+# die die DLLs einfach nach System32 kopiert.
+gserver100*.dll
