@@ -42,6 +42,9 @@
     <ClInclude Include="..\..\Klassen\DatenBasis.h">
       <Filter>Klassen</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Klassen\Vektor.h">
+      <Filter>Klassen</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GKS_Programm.cpp">
@@ -66,6 +69,9 @@
       <Filter>Klassen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Klassen\DatenBasis.cpp">
+      <Filter>Klassen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Klassen\Vektor.cpp">
       <Filter>Klassen</Filter>
     </ClCompile>
   </ItemGroup>
