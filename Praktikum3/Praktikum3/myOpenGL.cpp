@@ -11,8 +11,15 @@ myOpenGL::~myOpenGL(void)
 
 void myOpenGL::OnSizeGL(int cx, int cy)
 {
-	// TODO: Fügen Sie hier Ihren Meldungsbehandlungscode ein.
-	glViewport(0,0,cx,cy);	
+	float seitenverhaeltnis = 1.25f;
+	if(cx > cy * seitenverhaeltnis)
+	{
+		glViewport(0, 0, cy * seitenverhaeltnis, cy);
+	}
+	else
+	{
+		glViewport(0, 0, cx, cx / seitenverhaeltnis);
+	}
 }
 
 void myOpenGL::OnDrawGL()
