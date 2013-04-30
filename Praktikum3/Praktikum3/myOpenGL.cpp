@@ -11,7 +11,7 @@ myOpenGL::~myOpenGL(void)
 
 void myOpenGL::OnSizeGL(int cx, int cy)
 {
-	float seitenverhaeltnis = 1.25f;
+	float seitenverhaeltnis = getRatio();
 	if(cx > cy * seitenverhaeltnis)
 	{
 		glViewport(0, 0, cy * seitenverhaeltnis, cy);

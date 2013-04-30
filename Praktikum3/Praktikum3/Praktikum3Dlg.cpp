@@ -111,7 +111,7 @@ BOOL CPraktikum3Dlg::OnInitDialog()
 	// Grafik initialisieren (wenn notwendig)
 	m_cGrafik.Init();
 	// WC-Window setzen
-	m_wOpenGL.setWindow(xmin, xmax, ymin, ymax);
+	m_wOpenGL.setWindow(xmin, xmax + 200, ymin, ymax);
 
 	return TRUE;  // TRUE zurückgeben, wenn der Fokus nicht auf ein Steuerelement gesetzt wird
 }
