@@ -99,14 +99,19 @@ BOOL CPraktikum3Dlg::OnInitDialog()
 
 	// TODO: Hier zusätzliche Initialisierung einfügen
 
+	float xmin = -250;
+	float xmax = 250;
+	float ymin = -50;
+	float ymax = 350;
+
 	// OGL-Fenster konfigurieren
-	m_wOpenGL.InitOpenGL("Praktikum3", 0, 640, 0, 480);
+	m_wOpenGL.InitOpenGL("Praktikum3", 0, xmax - xmin, 0, ymax - ymin);
 	// Grafik dem OpenGL-Fenster zuordnen
 	m_wOpenGL.setGrafik(&m_cGrafik);
 	// Grafik initialisieren (wenn notwendig)
 	m_cGrafik.Init();
 	// WC-Window setzen
-	m_wOpenGL.setWindow(0,100,0,100);
+	m_wOpenGL.setWindow(xmin, xmax, ymin, ymax);
 
 	return TRUE;  // TRUE zurückgeben, wenn der Fokus nicht auf ein Steuerelement gesetzt wird
 }

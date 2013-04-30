@@ -15,11 +15,15 @@ void CGrafik::Init()
 
 void CGrafik::Draw()
 {
-	glColor3f(0,0,0);
-	glBegin(GL_POLYGON);
-		glVertex2f(0, 0);
-		glVertex2f(90,10);
-		glVertex2f(50,80);                
+	// Rotes Rechteck [-200,200] x [0,300] mit Breitenfaktor 4.
+	glLineWidth(4);
+	glColor3f(1, 0, 0);
+	glBegin(GL_LINE_LOOP);
+		glVertex2f(-200, 0);
+		glVertex2f(200, 0);
+		glVertex2f(200, 300);
+		glVertex2f(-200, 300);
 	glEnd();
-	glFlush();        
+
+	glFlush();
 }

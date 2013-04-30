@@ -3,7 +3,6 @@
 
 myOpenGL::myOpenGL(void)
 {
-	
 }
 
 myOpenGL::~myOpenGL(void)
@@ -32,5 +31,6 @@ void myOpenGL::OnDrawGL()
 	glLoadIdentity();
 
 	/************* Teil 2: Grafik-Ausgabe *******************************/
+	fillWindow();
 	m_pGrafik->Draw();
 }

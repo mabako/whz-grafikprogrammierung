@@ -203,7 +203,7 @@ void COpenGL::drawWindow()
 void COpenGL::fillWindow()
 {
 	glLineWidth(5);
-	glColor3f(0.273f,0.273f,0.273f);
+	glColor3f(0.0f,0.273f,0.273f);
 	// 0.273 macht es unwahrscheinlich, dass die Hintergrundfarbe genau (0.5,0.5,0.5) ist.
 	// In diesem Fall würde man das Gummiband nicht sehen!!!
 	glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
