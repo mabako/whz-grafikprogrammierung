@@ -67,4 +67,5 @@
 #pragma comment(lib, "glu32.lib")
 
 #include "Grafik.h"
+#include "GrafikListen.h"
 #include "myOpenGL.h"

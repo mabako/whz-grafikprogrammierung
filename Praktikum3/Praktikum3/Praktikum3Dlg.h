@@ -10,7 +10,7 @@ class CPraktikum3Dlg : public CDialogEx
 {
 private:
 	myOpenGL m_wOpenGL; // OpenGL-Fenster
-	CGrafik m_cGrafik; // Darzustellende Grafik
+	CGrafikListen m_cGrafik; // Darzustellende Grafik
 
 // Konstruktion
 public:

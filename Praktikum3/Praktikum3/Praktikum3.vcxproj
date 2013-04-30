@@ -103,6 +103,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\opengl\OpenGL.h" />
     <ClInclude Include="Grafik.h" />
+    <ClInclude Include="GrafikListen.h" />
     <ClInclude Include="myOpenGL.h" />
     <ClInclude Include="Praktikum3.h" />
     <ClInclude Include="Praktikum3Dlg.h" />
@@ -112,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\opengl\OpenGL.cpp" />
+    <ClCompile Include="GrafikListen.cpp" />
     <ClCompile Include="Grafik.cpp" />
     <ClCompile Include="myOpenGL.cpp" />
     <ClCompile Include="Praktikum3.cpp" />

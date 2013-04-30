@@ -5,8 +5,8 @@ class CGrafik
 private:
 
 public:
-        CGrafik(void);
-        ~CGrafik(void);
-        void Init();
-        void Draw();
+	CGrafik(void);
+	virtual ~CGrafik(void);
+	virtual void Init();
+	virtual void Draw();
 };
