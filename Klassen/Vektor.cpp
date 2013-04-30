@@ -22,3 +22,9 @@ float CVektor::get_dx() {
 float CVektor::get_dy() {
 	return dy;
 }
+
+CVektor CVektor::operator-() {
+	CVektor v;
+	v.set(-dx, -dy);
+	return v;
+}

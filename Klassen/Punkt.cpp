@@ -27,4 +27,10 @@ void CPunkt::schieben(CVektor v) {
 
 void CPunkt::drehen(CPunkt basisPunkt, float winkel)
 {
+	// Verschieben
+	x = x1 + cosq * (basisPunkt.get_x() - x1) - sinq * (y - y1)
+	y = y1 + sinq * (basisPunkt.get_x() - x1) + cosq * (y - y1)
+
+	schieben(-v);
+	schieben(v);
 }

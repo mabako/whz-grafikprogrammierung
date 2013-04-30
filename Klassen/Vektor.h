@@ -10,6 +10,8 @@ public:
 
 	float get_dx();
 	float get_dy();
+
+	CVektor operator-();
 private:
 	float dx;
 	float dy;
