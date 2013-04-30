@@ -54,6 +54,17 @@ void CGrafikListen::Init()
 	glEndList();
 
 	// Punkt-Raster im Abstand 20 für x >= 0
+	glNewList(104, GL_COMPILE);
+		glPointSize(1.5f);
+		glColor3f(1, 0, 1);
+		glBegin(GL_POINTS);
+			for(int x = 0; x < 500; x += 20) {
+				for(int y = -50; y < 350; y += 20) {
+					glVertex2f(x, y);
+				}
+			}
+		glEnd();
+	glEndList();
 
 	// Quadrat (-100, 0) (-20, 80) (-100, 160) (-180, 80); Rot gefüllt mit gelbem Rand mit Breitenfaktor 2
 	glNewList(99, GL_COMPILE);
