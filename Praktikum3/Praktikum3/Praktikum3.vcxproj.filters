@@ -51,9 +51,6 @@
     <ClInclude Include="myOpenGL.h">
       <Filter>OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="GrafikListen.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Praktikum3.cpp">
@@ -73,9 +70,6 @@
     </ClCompile>
     <ClCompile Include="myOpenGL.cpp">
       <Filter>OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="GrafikListen.cpp">
-      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

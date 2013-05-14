@@ -3,8 +3,10 @@
 
 CGrafik::CGrafik(void)
 {
-	m_fDx = 10;
-	m_fDy = 20;
+	xmin = -250;
+	xmax = 250;
+	ymin = -50;
+	ymax = 350;
 }
 
 CGrafik::~CGrafik(void)
@@ -103,11 +105,16 @@ void CGrafik::Init()
 
 void CGrafik::Draw()
 {
-	for(int i = 100; i <= 104; ++ i)
+	for(int i = 100; i <= 106; ++ i)
 		glCallList(i);
 
-	glTranslatef(m_fDx, m_fDy, 0);
-	glCallList(105);
-	glCallList(106);
 	glFlush();
+}
+
+void CGrafik::GetModellRaum(float& x, float& xm, float& y, float& ym)
+{
+	x = xmin;
+	xm = xmax;
+	y = ymin;
+	ym = ymax;
 }

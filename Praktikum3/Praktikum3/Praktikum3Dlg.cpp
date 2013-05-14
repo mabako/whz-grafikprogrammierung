@@ -50,8 +50,10 @@ END_MESSAGE_MAP()
 
 CPraktikum3Dlg::CPraktikum3Dlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CPraktikum3Dlg::IDD, pParent)
-	, m_fDxDlg(0)
-	, m_fDyDlg(0)
+	, m_fMinX(0)
+	, m_fMaxX(0)
+	, m_fMinY(0)
+	, m_fMaxY(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -59,15 +61,18 @@ CPraktikum3Dlg::CPraktikum3Dlg(CWnd* pParent /*=NULL*/)
 void CPraktikum3Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_EDX, m_fDxDlg);
-	DDX_Text(pDX, IDC_EDY, m_fDyDlg);
+	DDX_Text(pDX, IDC_EMINX, m_fMinX);
+	DDX_Text(pDX, IDC_EMAXX, m_fMaxX);
+	DDX_Text(pDX, IDC_EMINY, m_fMinY);
+	DDX_Text(pDX, IDC_EMAXY, m_fMaxY);
 }
 
 BEGIN_MESSAGE_MAP(CPraktikum3Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BAKTION, &CPraktikum3Dlg::OnBnClickedBaktion)
+	ON_BN_CLICKED(IDC_BZOOMALLES, &CPraktikum3Dlg::OnBnClickedBzoomalles)
+	ON_BN_CLICKED(IDC_BACTION, &CPraktikum3Dlg::OnBnClickedBaction)
 END_MESSAGE_MAP()
 
 
@@ -104,26 +109,27 @@ BOOL CPraktikum3Dlg::OnInitDialog()
 
 	// TODO: Hier zusätzliche Initialisierung einfügen
 
-	float xmin = -250;
-	float xmax = 250;
-	float ymin = -50;
-	float ymax = 350;
-
 	// OGL-Fenster konfigurieren
-	m_wOpenGL.InitOpenGL("Praktikum3", 0, xmax - xmin, 0, ymax - ymin);
+	float xmin, xmax, ymin, ymax;
+	m_cGrafik.GetModellRaum(xmin, xmax, ymin, ymax);
+	float width = xmax - xmin, height = ymax - ymin;
+
+	m_wOpenGL.InitOpenGL("Übersichtsfenster", 0.f, width, 0.f, height);
+	m_wOpenGL2.InitOpenGL("Zoomfenster", width, 1.5f * width, 0.f, height);
+
 	// Grafik dem OpenGL-Fenster zuordnen
 	m_wOpenGL.setGrafik(&m_cGrafik);
+	m_wOpenGL2.setGrafik(&m_cGrafik);
+	m_wOpenGL.shareContext(m_wOpenGL2);
+
 	// Grafik initialisieren (wenn notwendig)
 	m_cGrafik.Init();
+
 	// WC-Window setzen
-	m_wOpenGL.setWindow(xmin, xmax + 200, ymin, ymax);
+	m_wOpenGL.setWindow(xmin - 0.1*width, xmax + 0.1*width, ymin - 0.1*height, ymax + 0.1*height);
+	m_wOpenGL2.setWindow(xmin, xmax, ymin, ymax);
 
-
-	// Initialisierung der Schaltflächen
-	m_fDxDlg = m_cGrafik.m_fDx;
-	m_fDyDlg = m_cGrafik.m_fDy;
-	UpdateData(false);
-
+	OnBnClickedBzoomalles();
 
 	return TRUE;  // TRUE zurückgeben, wenn der Fokus nicht auf ein Steuerelement gesetzt wird
 }
@@ -179,10 +185,26 @@ HCURSOR CPraktikum3Dlg::OnQueryDragIcon()
 
 
 
-void CPraktikum3Dlg::OnBnClickedBaktion()
+void CPraktikum3Dlg::OnBnClickedBzoomalles()
+{
+	float minx, maxx, miny, maxy;
+	m_cGrafik.GetModellRaum(minx, maxx, miny, maxy);
+	m_wOpenGL2.setWindow(minx, maxx, miny, maxy);
+	m_wOpenGL2.Invalidate();
+
+	m_fMinX = minx;
+	m_fMaxX = maxx;
+	m_fMinY = miny;
+	m_fMaxY = maxy;
+	UpdateData(false);
+}
+
+
+void CPraktikum3Dlg::OnBnClickedBaction()
 {
 	UpdateData(true);
-	m_cGrafik.m_fDx = m_fDxDlg;
-	m_cGrafik.m_fDy = m_fDyDlg;
-	m_wOpenGL.Invalidate();
+
+	float minx = m_fMinX, maxx = m_fMaxX, miny = m_fMinY, maxy = m_fMaxY;
+	m_wOpenGL2.setWindow(minx, maxx, miny, maxy);
+	m_wOpenGL2.Invalidate();
 }
