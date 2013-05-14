@@ -10,7 +10,7 @@ class CPraktikum3Dlg : public CDialogEx
 {
 private:
 	myOpenGL m_wOpenGL; // OpenGL-Fenster
-	CGrafikListen m_cGrafik; // Darzustellende Grafik
+	CGrafik m_cGrafik; // Darzustellende Grafik
 
 // Konstruktion
 public:
@@ -33,4 +33,9 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+private:
+	float m_fDxDlg;
+	float m_fDyDlg;
+public:
+	afx_msg void OnBnClickedBaktion();
 };

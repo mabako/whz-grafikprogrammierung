@@ -50,6 +50,8 @@ END_MESSAGE_MAP()
 
 CPraktikum3Dlg::CPraktikum3Dlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CPraktikum3Dlg::IDD, pParent)
+	, m_fDxDlg(0)
+	, m_fDyDlg(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -57,12 +59,15 @@ CPraktikum3Dlg::CPraktikum3Dlg(CWnd* pParent /*=NULL*/)
 void CPraktikum3Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDX, m_fDxDlg);
+	DDX_Text(pDX, IDC_EDY, m_fDyDlg);
 }
 
 BEGIN_MESSAGE_MAP(CPraktikum3Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BAKTION, &CPraktikum3Dlg::OnBnClickedBaktion)
 END_MESSAGE_MAP()
 
 
@@ -112,6 +117,13 @@ BOOL CPraktikum3Dlg::OnInitDialog()
 	m_cGrafik.Init();
 	// WC-Window setzen
 	m_wOpenGL.setWindow(xmin, xmax + 200, ymin, ymax);
+
+
+	// Initialisierung der Schaltflächen
+	m_fDxDlg = m_cGrafik.m_fDx;
+	m_fDyDlg = m_cGrafik.m_fDy;
+	UpdateData(false);
+
 
 	return TRUE;  // TRUE zurückgeben, wenn der Fokus nicht auf ein Steuerelement gesetzt wird
 }
@@ -165,3 +177,12 @@ HCURSOR CPraktikum3Dlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CPraktikum3Dlg::OnBnClickedBaktion()
+{
+	UpdateData(true);
+	m_cGrafik.m_fDx = m_fDxDlg;
+	m_cGrafik.m_fDy = m_fDyDlg;
+	m_wOpenGL.Invalidate();
+}
