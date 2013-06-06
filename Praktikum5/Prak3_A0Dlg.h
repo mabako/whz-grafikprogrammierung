@@ -1,23 +1,23 @@
 
-// Praktikum3Dlg.h: Headerdatei
+// Prak3_A0Dlg.h: Headerdatei
 //
 
 #pragma once
+#include "myOpenglMaus.h"
 
 
-// CPraktikum3Dlg-Dialogfeld
-class CPraktikum3Dlg : public CDialogEx
+
+
+
+// CPrak3_A0Dlg-Dialogfeld
+class CPrak3_A0Dlg : public CDialog
 {
-private:
-	myOpenGL m_wOpenGL; // OpenGL-Fenster
-	CGrafik m_cGrafik; // Darzustellende Grafik
-
 // Konstruktion
 public:
-	CPraktikum3Dlg(CWnd* pParent = NULL);	// Standardkonstruktor
+	CPrak3_A0Dlg(CWnd* pParent = NULL);	// Standardkonstruktor
 
 // Dialogfelddaten
-	enum { IDD = IDD_PRAKTIKUM3_DIALOG };
+	enum { IDD = IDD_PRAK3_A0_DIALOG };
 
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV-Unterstützung
@@ -33,9 +33,8 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+
 private:
-	float m_fDxDlg;
-	float m_fDyDlg;
-public:
-	afx_msg void OnBnClickedBaktion();
+	myOpenGL m_wOpenGL; // OpenGL-Fenster
+	CGrafik m_cGrafik;  // Darzustellende Grafik
 };

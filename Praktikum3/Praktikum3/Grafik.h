@@ -3,15 +3,13 @@
 class CGrafik 
 {
 private:
-	float xmin;
-	float xmax;
-	float ymin;
-	float ymax;
 
 public:
+	float m_fDx;
+	float m_fDy;
+
 	CGrafik(void);
 	virtual ~CGrafik(void);
 	virtual void Init();
 	virtual void Draw();
-	void GetModellRaum(float&, float&, float&, float&);
 };

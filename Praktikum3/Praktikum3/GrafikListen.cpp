@@ -1,17 +1,7 @@
 #include "StdAfx.h"
 #include "Grafik.h"
 
-CGrafik::CGrafik(void)
-{
-	m_fDx = 10;
-	m_fDy = 20;
-}
-
-CGrafik::~CGrafik(void)
-{
-}
-
-void CGrafik::Init()
+void CGrafikListen::Init()
 {
 	// Rotes Rechteck [-200,200] x [0,300] mit Breitenfaktor 4.
 	glNewList(100, GL_COMPILE);
@@ -101,13 +91,9 @@ void CGrafik::Init()
 	glEndList();
 }
 
-void CGrafik::Draw()
+void CGrafikListen::Draw()
 {
-	for(int i = 100; i <= 104; ++ i)
+	for(int i = 100; i <= 106; ++ i)
 		glCallList(i);
-
-	glTranslatef(m_fDx, m_fDy, 0);
-	glCallList(105);
-	glCallList(106);
 	glFlush();
 }

@@ -1,11 +1,10 @@
 
-// Praktikum3Dlg.cpp: Implementierungsdatei
+// Prak3_A0Dlg.cpp: Implementierungsdatei
 //
 
 #include "stdafx.h"
-#include "Praktikum3.h"
-#include "Praktikum3Dlg.h"
-#include "afxdialogex.h"
+#include "Prak3_A0.h"
+#include "Prak3_A0Dlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -14,7 +13,7 @@
 
 // CAboutDlg-Dialogfeld für Anwendungsbefehl "Info"
 
-class CAboutDlg : public CDialogEx
+class CAboutDlg : public CDialog
 {
 public:
 	CAboutDlg();
@@ -30,52 +29,48 @@ protected:
 	DECLARE_MESSAGE_MAP()
 };
 
-CAboutDlg::CAboutDlg() : CDialogEx(CAboutDlg::IDD)
+CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
 {
 }
 
 void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialogEx::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 }
 
-BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 END_MESSAGE_MAP()
 
 
-// CPraktikum3Dlg-Dialogfeld
+// CPrak3_A0Dlg-Dialogfeld
 
 
 
 
-CPraktikum3Dlg::CPraktikum3Dlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(CPraktikum3Dlg::IDD, pParent)
-	, m_fDxDlg(0)
-	, m_fDyDlg(0)
+CPrak3_A0Dlg::CPrak3_A0Dlg(CWnd* pParent /*=NULL*/)
+	: CDialog(CPrak3_A0Dlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CPraktikum3Dlg::DoDataExchange(CDataExchange* pDX)
+void CPrak3_A0Dlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialogEx::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_EDX, m_fDxDlg);
-	DDX_Text(pDX, IDC_EDY, m_fDyDlg);
+	CDialog::DoDataExchange(pDX);
 }
 
-BEGIN_MESSAGE_MAP(CPraktikum3Dlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CPrak3_A0Dlg, CDialog)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BAKTION, &CPraktikum3Dlg::OnBnClickedBaktion)
+	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 
-// CPraktikum3Dlg-Meldungshandler
+// CPrak3_A0Dlg-Meldungshandler
 
-BOOL CPraktikum3Dlg::OnInitDialog()
+BOOL CPrak3_A0Dlg::OnInitDialog()
 {
-	CDialogEx::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	// Hinzufügen des Menübefehls "Info..." zum Systemmenü.
 
@@ -103,32 +98,26 @@ BOOL CPraktikum3Dlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Kleines Symbol verwenden
 
 	// TODO: Hier zusätzliche Initialisierung einfügen
-
-	float xmin = -250;
-	float xmax = 250;
-	float ymin = -50;
-	float ymax = 350;
-
 	// OGL-Fenster konfigurieren
-	m_wOpenGL.InitOpenGL("Praktikum3", 0, xmax - xmin, 0, ymax - ymin);
+	m_wOpenGL.InitOpenGL("OpenGL", 0, 500, 0, 500);		
+
 	// Grafik dem OpenGL-Fenster zuordnen
 	m_wOpenGL.setGrafik(&m_cGrafik);
+
 	// Grafik initialisieren (wenn notwendig)
-	m_cGrafik.Init();
+	m_cGrafik.Init(); 
+
+	// Hintergrundfarbe setzen
+	m_wOpenGL.setBackGround(1,1,0.6);
+
+	// In 2D-Projekten	
 	// WC-Window setzen
-	m_wOpenGL.setWindow(xmin, xmax + 200, ymin, ymax);
-
-
-	// Initialisierung der Schaltflächen
-	m_fDxDlg = m_cGrafik.m_fDx;
-	m_fDyDlg = m_cGrafik.m_fDy;
-	UpdateData(false);
-
+	m_wOpenGL.setWindow(0,400,0,300);	
 
 	return TRUE;  // TRUE zurückgeben, wenn der Fokus nicht auf ein Steuerelement gesetzt wird
 }
 
-void CPraktikum3Dlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CPrak3_A0Dlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
 	{
@@ -137,15 +126,15 @@ void CPraktikum3Dlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 	else
 	{
-		CDialogEx::OnSysCommand(nID, lParam);
+		CDialog::OnSysCommand(nID, lParam);
 	}
 }
 
-// Wenn Sie dem Dialogfeld eine Schaltfläche "Minimieren" hinzufügen, benötigen Sie
+// Wenn Sie dem Dialogfeld eine Schaltfläche "Minimieren" hinzufügen, benötigen Sie 
 //  den nachstehenden Code, um das Symbol zu zeichnen. Für MFC-Anwendungen, die das 
 //  Dokument/Ansicht-Modell verwenden, wird dies automatisch ausgeführt.
 
-void CPraktikum3Dlg::OnPaint()
+void CPrak3_A0Dlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -166,23 +155,14 @@ void CPraktikum3Dlg::OnPaint()
 	}
 	else
 	{
-		CDialogEx::OnPaint();
+		CDialog::OnPaint();
 	}
 }
 
 // Die System ruft diese Funktion auf, um den Cursor abzufragen, der angezeigt wird, während der Benutzer
 //  das minimierte Fenster mit der Maus zieht.
-HCURSOR CPraktikum3Dlg::OnQueryDragIcon()
+HCURSOR CPrak3_A0Dlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
-
-void CPraktikum3Dlg::OnBnClickedBaktion()
-{
-	UpdateData(true);
-	m_cGrafik.m_fDx = m_fDxDlg;
-	m_cGrafik.m_fDy = m_fDyDlg;
-	m_wOpenGL.Invalidate();
-}

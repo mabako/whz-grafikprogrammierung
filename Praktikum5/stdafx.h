@@ -24,6 +24,7 @@
 #include <afxext.h>         // MFC-Erweiterungen
 
 
+#include <afxdisp.h>        // MFC-Automatisierungsklassen
 
 
 
@@ -37,13 +38,6 @@
 #include <afxcontrolbars.h>     // MFC-Unterstützung für Menübänder und Steuerleisten
 
 
-
-
-
-
-
-
-
 #ifdef _UNICODE
 #if defined _M_IX86
 #pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")
@@ -55,16 +49,27 @@
 #endif
 
 
+#define _USE_MATH_DEFINES
+#include <math.h>
 
-
-
-
-
-// OpenGL
+// Einfügen in stdafx.h
 #include "GL\gl.h"
 #include "GL\glu.h"
+
+// Grafikobjekte
+#include "Klassen/Punkt.h"
+#include "Klassen/Vektor.h"
+#include "Klassen/GeoObject.h"
+#include "Klassen/Linie.h"
+#include "Klassen/Kreis.h"
+
+#include "Klassen/DatenBasis.h"
+
+// Interaktives Programm mit Mausinteraktion
+#include "GrafikMaus.h"
+#include "OpenGL/Maus.h"
+
+// Bibliotheken
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glu32.lib")
 
-#include "Grafik.h"
-#include "myOpenGL.h"
