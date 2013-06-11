@@ -49,6 +49,7 @@ END_MESSAGE_MAP()
 
 CPrak3_A0Dlg::CPrak3_A0Dlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CPrak3_A0Dlg::IDD, pParent)
+	, m_iLoeschen(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -56,6 +57,7 @@ CPrak3_A0Dlg::CPrak3_A0Dlg(CWnd* pParent /*=NULL*/)
 void CPrak3_A0Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_ELOESCHEN, m_iLoeschen);
 }
 
 BEGIN_MESSAGE_MAP(CPrak3_A0Dlg, CDialog)
@@ -63,6 +65,7 @@ BEGIN_MESSAGE_MAP(CPrak3_A0Dlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_BLOESCHEN, &CPrak3_A0Dlg::OnBnClickedBloeschen)
 END_MESSAGE_MAP()
 
 
@@ -166,3 +169,11 @@ HCURSOR CPrak3_A0Dlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CPrak3_A0Dlg::OnBnClickedBloeschen()
+{
+	UpdateData(true);
+	glDeleteLists(m_iLoeschen, 1);
+	m_wOpenGL.Invalidate();
+}

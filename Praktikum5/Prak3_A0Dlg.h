@@ -37,4 +37,7 @@ protected:
 private:
 	myOpenGL m_wOpenGL; // OpenGL-Fenster
 	CGrafik m_cGrafik;  // Darzustellende Grafik
+public:
+	int m_iLoeschen;
+	afx_msg void OnBnClickedBloeschen();
 };
